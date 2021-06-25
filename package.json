@@ -1,0 +1,17 @@
+{
+  "name": "service",
+  "version": "1.0.9",
+  "description": "",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "chokidar": "^3.5.1",
+    "cross-env": "^7.0.2"
+  },
+  "scripts": {
+    "transform-dev": "cross-env target=test node ./scripts/transJSP",
+    "transform": "cross-env target=test mode=build node ./scripts/transJSP"
+  },
+  "author": "",
+  "license": "ISC"
+}
