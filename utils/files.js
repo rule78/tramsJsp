@@ -1,3 +1,4 @@
+var t = require('./t')
 var fs = require('fs');
 var path = require('path');
 /*
@@ -45,7 +46,7 @@ const compilerScript = (scriptList) => {
     let insertCode = scriptList.filter(i=>i.indexOf('/*start*/') === -1).map(i=> {
         return i.replace('<script>', '').replace('<\/script>', '')
     }).reduce((a,b)=>{return a+b}, '')
-    targetScript = targetScript.replace('/*start*/', insertCode);
+    targetScript = targetScript.replace('/*start*/', t.translateEs6(insertCode));
     return targetScript
 }
 

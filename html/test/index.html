@@ -11,11 +11,15 @@
 <script >
     getPageInitData();
     function getPageInitData () {
-        
-    var a = 'http://dengta-t-2.61hualala.com/'
-    console.log('step1')
+        var a = 'http://dengta-t-2.61hualala.com/';
+console.log('step1');
+var array = [];
 
-    console.log('step2')
+var setStr = function setStr() {
+  var s = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'test';
+  return Array.isArray(array) ? s : '';
+};
 
+console.log(setStr(''));
     }
 </script>

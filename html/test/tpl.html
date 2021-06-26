@@ -17,5 +17,9 @@
     console.log('step1')
 </script>
 <script>
-    console.log('step2')
+    const array = [];
+    const setStr = (s = 'test') => {
+        return Array.isArray(array) ? s : ''
+    }
+    console.log(setStr(''))
 </script>
