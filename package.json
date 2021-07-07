@@ -1,22 +1,70 @@
 {
-  "name": "service",
-  "version": "1.0.9",
-  "description": "",
-  "main": "gulpfile.js",
+  "name": "node-transJsp",
+  "version": "1.0.0",
+  "description": "transJsp",
+  "private": true,
+  "egg": {
+    "typescript": true,
+    "declarations": true
+  },
+  "scripts": {
+    "start": "egg-scripts start --title=egg-server --port=8080",
+    "stop": "egg-scripts stop --title=egg-server",
+    "dev": "cross-env CLOUD_CONFIG_SERVER=***** CLOUD_CONFIG_PROFILE=dev CLOUD_CONFIG_USER=root CLOUD_CONFIG_PASSWORD=password egg-bin dev",
+    "test": "npm run lint -- --fix && npm run test-local",
+    "cov": "egg-bin cov",
+    "tsc": "ets && tsc -p tsconfig.json",
+    "ci": "npm run lint && npm run cov && npm run tsc",
+    "autod": "autod",
+    "lint": "tslint --project . -c tslint.json",
+    "lint:fix": "tslint --project . -c tslint.json --fix",
+    "clean": "ets clean",
+    "build": "npm run clean && npm run lint && npm run tsc"
+  },
   "dependencies": {
+    "@alicloud/opentracing": "^0.1.1",
     "@babel/core": "^7.14.6",
     "@babel/parser": "^7.14.7",
     "@babel/preset-env": "^7.14.7",
-    "@babel/traverse": "^7.14.7"
+    "cross-env": "^6.0.3",
+    "egg": "^2.26.0",
+    "egg-alinode": "^2.0.1",
+    "egg-mongoose": "^3.2.0",
+    "egg-redis": "^2.4.0",
+    "egg-scripts": "^2.12.0",
+    "egg-security": "^2.7.1",
+    "egg-validate": "^2.0.2",
+    "moment": "^2.24.0",
+    "node-jsp": "0.0.4",
+    "querystring": "^0.2.0"
   },
   "devDependencies": {
-    "chokidar": "^3.5.1",
-    "cross-env": "^7.0.2"
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.12.18",
+    "@types/supertest": "^2.0.8",
+    "autod": "^3.1.0",
+    "autod-egg": "^1.1.0",
+    "egg-bin": "^4.14.0",
+    "egg-ci": "^1.13.1",
+    "egg-mock": "^3.25.0",
+    "tslib": "^1.10.0",
+    "tslint": "^5.20.1",
+    "tslint-config-egg": "^1.0.0",
+    "typescript": "^3.7.3"
   },
-  "scripts": {
-    "transform-dev": "cross-env target=test node ./scripts/transJSP",
-    "transform": "cross-env target=test mode=build node ./scripts/transJSP"
+  "engines": {
+    "node": ">=8.9.0"
   },
-  "author": "",
-  "license": "ISC"
+  "ci": {
+    "version": "8"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "eslintIgnore": [
+    "coverage"
+  ],
+  "author": "study",
+  "license": "MIT"
 }
