@@ -1,6 +1,6 @@
-# hackernews-async-ts
+# tramsJsp
 
-[Hacker News](https://news.ycombinator.com/) showcase using typescript && egg
+把jsp项目迁移至node项目，实现前后端分离、es6语法
 
 ## QuickStart
 
